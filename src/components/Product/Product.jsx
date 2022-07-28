@@ -1,12 +1,12 @@
-
+import styles from './product.module.css'
 
 const Product = (props) => {
 
     // console.log(props);
     return (
-        <div>
-            <p>product name : {props.title}</p>
-            <p>product price: {props.price}</p>
+        <div className={styles.product} onClick={props.click}>
+            <p>product name : {props.name} course</p>
+            <p>product price: {props.price} $</p>
         </div>
     );
 }

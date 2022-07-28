@@ -4,7 +4,7 @@ import { useState } from "react";
 const ArrayHook = () => {
     
     const [item, setItem] = useState([])
-    console.log(item);
+    // console.log(item);
     const clickHandler = () =>{
         setItem([...item, {id:item.length ,number : Math.floor(Math.random()*10) }])
     }
