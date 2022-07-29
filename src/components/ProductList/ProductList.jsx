@@ -9,6 +9,12 @@ const Products = () => {
         {title : "Python" , price : 60,id:3},
     ])
 
+    const deleteHandler = (id) =>{
+        console.log('DeleteHandler clicked' , id);
+        const filteredProduct = products.filter((item) => item.id !== id)
+        setProducts(filteredProduct)
+    }
+
     return (
         <div>
             {products.map((item)=>{
@@ -17,6 +23,7 @@ const Products = () => {
                         key ={item.id}
                         name = {item.title}
                         price = {item.price}
+                        onDelete = {() => deleteHandler(item.id)}
                         // click = {clikcHandler}
                     />
                 )
