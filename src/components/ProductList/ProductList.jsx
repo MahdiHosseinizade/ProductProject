@@ -29,19 +29,42 @@ const Products = () => {
         setProducts(copiedProducts);
     }
 
-    return (
-        <div>
-            {products.map((product,index)=>{
+    const decrementHandler = (id) =>{
+        const copiedProducts = [...products]
+        const selectedItem = copiedProducts.find((item) => item.id === id);
+        if (selectedItem.quantity === 1) {
+            const filteredProduct = copiedProducts.filter((item) => item.id !== id)
+            setProducts(filteredProduct)
+        }else{
+            selectedItem.quantity-=1
+            setProducts(copiedProducts)
+        }
+    }
+    const rendredProduct = () =>{
+        if (products.length === 0) {
+            return(
+                <div>There is no item in cart</div>
+            )
+        }
+        return(
+            products.map((product,index)=>{
                 return(
                     <Product
                         key ={index}
                         product = {product}
                         onIncrement = {() => incrementHandler(product.id)}
+                        onDecrement = {() => decrementHandler(product.id)}
                         onDelete = {() => deleteHandler(product.id)}
                         onInput = {(e) =>inputHandler(e,product.id)}
                     />
                 )
-            })}
+            })
+        )
+    }
+    return (
+        <div>
+            {!products.length == true && <div>Back to shopping</div>}
+            {rendredProduct()}
         </div>
     );
 }

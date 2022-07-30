@@ -18,10 +18,14 @@
     outline: none;
     padding: 5px 10px;
     cursor: pointer;
+    font-size: 16px;
 }
 
 .inc{
     background-color: #ede9fe;
+}
+.inc:hover{
+    border: 2px solid ;
 }
 
 .value {
@@ -34,17 +38,31 @@
     border-radius: 50%;
     align-items: center;
     margin-top: 1px;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .input{
     outline: none;
     border-radius: 5px;
-    border: 1px solid #6d28d9;
+    border: 1px solid #8d829f;
     padding: 5px 2px;
     color: #6d28d9;
+    font-size: 13px;
 }
 
 .input:focus{
     border: 2px solid #6d28d9;
+}
+
+.remove{
+    border  : 1px solid crimson;
+    color: crimson;
+}
+
+
+
+.del:hover{
+    border: 2px solid crimson;
+    color: crimson;
+    background-color: #f9f8fb;
 }
