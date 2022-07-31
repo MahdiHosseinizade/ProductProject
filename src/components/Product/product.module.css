@@ -62,7 +62,7 @@
 
 
 .del:hover{
-    border: 2px solid crimson;
+    border: 1px solid crimson;
     color: crimson;
     background-color: #f9f8fb;
 }
