@@ -1,8 +1,17 @@
 import styles from './product.module.css'
 
 import {FaTrash} from 'react-icons/fa'
+import { useEffect } from 'react';
 
 const Product = ({product,onIncrement,onDelete,onInput,onDecrement}) => {
+
+    // CDM + CDU + CWUM =>useEffect
+    useEffect(() => {
+        // console.log('product.js useEffect');
+        // return () =>{
+        //     console.log('CWUM');
+        // }
+    },[])
 
     // console.log(props);
     return (
