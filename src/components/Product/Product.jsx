@@ -5,12 +5,12 @@ import { useEffect } from 'react';
 
 const Product = ({product,onIncrement,onDelete,onInput,onDecrement}) => {
 
-    // CDM + CDU + CWUM =>useEffect
-    useEffect(() => {
-        // console.log('product.js useEffect');
-        // return () =>{
-        //     console.log('CWUM');
-        // }
+    // CDM + CDU + CWUM => useEffect
+    useEffect(() =>{
+        console.log('Product.js CDM' );
+        return() =>{
+            console.log('product.js CWUM');
+        }
     },[])
 
     // console.log(props);

@@ -3,6 +3,8 @@ import Navbar from './components/Navbar/Navbar';
 import Products from "./components/ProductList/ProductList";
 
 import { useState } from 'react';
+import Wrapper from './components/hoc/Wrapper';
+
 
 const App = () => {
     
@@ -58,7 +60,7 @@ const App = () => {
     }
 
     return (
-        <div className="container">
+        <>
             <Navbar
                 products={products}
             />
@@ -69,8 +71,9 @@ const App = () => {
                 onDecrement = {decrementHandler}
                 onInput =  {inputHandler}
             />
-        </div>
+        </>
+        
     );
 }
 
-export default App;
+export default Wrapper(App,"container");
