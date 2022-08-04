@@ -4,6 +4,8 @@ import Products from "./components/ProductList/ProductList";
 
 import { useState } from 'react';
 import Wrapper from './components/hoc/Wrapper';
+import CounterProvider from './context/CounterProvider';
+import CounterOne from './context/CounterOne';
 
 
 const App = () => {
@@ -58,10 +60,19 @@ const App = () => {
             setProducts(AllProducts);
         }
     }
+// to use context 
+//1. createContext 
+//2. export 
+//3. provider
+//4. useContext
 
     return (
-        <>
-            <Navbar
+        <div className="container">
+            <CounterProvider>
+                <p>welcome ! this is children</p>
+                <CounterOne/>
+            </CounterProvider>
+            {/* <Navbar
                 products={products}
             />
             <Products 
@@ -70,10 +81,10 @@ const App = () => {
                 onIncrement = {incrementHandler}
                 onDecrement = {decrementHandler}
                 onInput =  {inputHandler}
-            />
-        </>
+            /> */}
+        </div>
         
     );
 }
-
-export default Wrapper(App,"container");
+export default App;
+// export default Wrapper(App,"container");

@@ -13,15 +13,14 @@
 //     )
 // }
 
+// const Wrapper = (WrappedComponent ,className) =>{
+//     return(props) =>{
+//             return (<div className={className}>
+//                 <WrappedComponent/>
+//             </div>
+//         )
+//     }
+// }
 
-const Wrapper = (WrappedComponent ,className) =>{
-    return(props) =>{
-            return (<div className={className}>
-                <WrappedComponent/>
-            </div>
-        )
-    }
-}
 
-
-export default Wrapper;
+// export default Wrapper;
