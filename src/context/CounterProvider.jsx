@@ -4,10 +4,10 @@
 //3. provider
 //4. useContext
 
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
-export const counetrContext = createContext();
-export const counetrContextDispacher = createContext();
+const CounetrContext = createContext();
+const counetrContextDispacher = createContext();
 
 const CounterProvider = ({chilren}) => {
     
@@ -15,13 +15,16 @@ const CounterProvider = ({chilren}) => {
     
     return (
         <div>
-            <counetrContext.Provider value={count}>
+            <CounetrContext.Provider value={count}>
                 <counetrContextDispacher.Provider value={setCount}>
                     {chilren}
                 </counetrContextDispacher.Provider>
-            </counetrContext.Provider>
+            </CounetrContext.Provider>
         </div>
     );
 }
  
 export default CounterProvider;
+
+export const useCounter = () => useContext(CounetrContext);
+export const useCountActions = () => useContext(counetrContextDispacher);

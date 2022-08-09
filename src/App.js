@@ -6,6 +6,7 @@ import { useState } from 'react';
 import Wrapper from './components/hoc/Wrapper';
 import CounterProvider from './context/CounterProvider';
 import CounterOne from './context/CounterOne';
+import CountReducer from './Reducer/CountReducer';
 
 
 const App = () => {
@@ -67,10 +68,11 @@ const App = () => {
 //4. useContext
 
     return (
-        <div className="container">
+        <div className='container'>
             <CounterProvider>
-                <p>welcome ! this is children</p>
-                <CounterOne/>
+                {/* <p>welcome ! this is children</p>
+                <CounterOne/> */}
+                <CountReducer/>
             </CounterProvider>
             {/* <Navbar
                 products={products}
