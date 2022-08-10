@@ -3,19 +3,18 @@ import Navbar from './components/Navbar/Navbar';
 import Products from "./components/ProductList/ProductList";
 
 import { useState } from 'react';
-import Wrapper from './components/hoc/Wrapper';
-import CounterProvider from './context/CounterProvider';
-import CounterOne from './context/CounterOne';
-import CountReducer from './Reducer/CountReducer';
+
+import ProductsProviders from './components/Providers/ProductsProviders';
+import { SetProductsActions, UseProducts } from './components/Providers/ProductsProviders';
+
 
 
 const App = () => {
+
+    const products = UseProducts();
+    const setProducts = SetProductsActions();
     
-    const [products,setProducts] = useState([
-        {title : "React.js" , price : 99,id:0 , quantity : 3},
-        {title : "Ruby" , price : 36 , id:1 , quantity : 2},
-        {title : "Python" , price : 60, id:2 ,quantity : 2},
-    ])
+    // const [products,setProducts] = useState()
 
     const deleteHandler = (id) =>{
         const filteredProduct = products.filter((item) => item.id !== id)
@@ -68,24 +67,33 @@ const App = () => {
 //4. useContext
 
     return (
+        // <div className='container'>
+            
+        //     <Navbar
+        //         products={products}
+        //     />
+        //     <Products 
+        //         products = {products}
+        //         onDelete = {deleteHandler}
+        //         onIncrement = {incrementHandler}
+        //         onDecrement = {decrementHandler}
+        //         onInput =  {inputHandler}
+        //     />
+        // </div>
         <div className='container'>
-            <CounterProvider>
-                {/* <p>welcome ! this is children</p>
-                <CounterOne/> */}
-                <CountReducer/>
-            </CounterProvider>
-            {/* <Navbar
-                products={products}
-            />
-            <Products 
-                products = {products}
-                onDelete = {deleteHandler}
-                onIncrement = {incrementHandler}
-                onDecrement = {decrementHandler}
-                onInput =  {inputHandler}
-            /> */}
+            <ProductsProviders>
+                <Navbar
+                    products={products}
+                />
+                <Products 
+                    products = {products}
+                    onDelete = {deleteHandler}
+                    onIncrement = {incrementHandler}
+                    onDecrement = {decrementHandler}
+                    onInput =  {inputHandler}
+                />
+            </ProductsProviders>
         </div>
-        
     );
 }
 export default App;

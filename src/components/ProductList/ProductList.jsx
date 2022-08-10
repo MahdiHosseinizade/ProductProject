@@ -1,9 +1,10 @@
 import Product from "../Product/Product";
+import { UseProducts } from "../Providers/ProductsProviders";
 
 
-const Products = ({products,onDelete,onIncrement,onDecrement,onInput}) => {
+const Products = ({onDelete,onIncrement,onDecrement,onInput}) => {
     
-    
+    const products = UseProducts();
 
     
     const rendredProduct = () =>{

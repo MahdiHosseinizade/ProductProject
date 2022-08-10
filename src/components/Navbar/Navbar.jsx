@@ -1,9 +1,11 @@
 
+import { UseProducts } from '../Providers/ProductsProviders';
 import styles from './navabr.module.css'
 
 
-const Navbar = ({products}) => {
-
+const Navbar = () => {
+    const products = UseProducts();
+    // console.log(products);
     return (
         <header className={styles.navbar}>
             <h2>shopping App</h2>
