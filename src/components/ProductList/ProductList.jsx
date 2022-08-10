@@ -5,7 +5,7 @@ import { SetProductsActions, UseProducts } from "../Providers/ProductsProviders"
 const Products = () => {
     
     const products = UseProducts();
-    const {deleteHandler,incrementHandler,inputHandler,decrementHandler} = SetProductsActions();
+    const dispatch = SetProductsActions();
     
     const rendredProduct = () =>{
         if (products.length === 0) {
@@ -19,10 +19,10 @@ const Products = () => {
                     <Product
                         key ={index}
                         product = {product}
-                        onIncrement = {() =>incrementHandler(product.id)}
-                        onDecrement = {() => decrementHandler(product.id)}
-                        onDelete = {() => deleteHandler(product.id)}
-                        onInput = {(e) =>inputHandler(e,product.id)}
+                        onIncrement = {() => dispatch({type:"increment" , id:product.id})}
+                        onDecrement = {() => dispatch({type:"decrement" , id:product.id})}
+                        onDelete = {() => dispatch({type:"remove" , id:product.id})}
+                        onInput = {(e) =>dispatch({type:"edit" , id:product.id,event:e})}
                     />
                 )
             })
