@@ -1,11 +1,11 @@
 import Product from "../Product/Product";
-import { UseProducts } from "../Providers/ProductsProviders";
+import { SetProductsActions, UseProducts } from "../Providers/ProductsProviders";
 
 
-const Products = ({onDelete,onIncrement,onDecrement,onInput}) => {
+const Products = () => {
     
     const products = UseProducts();
-
+    const {deleteHandler,incrementHandler,inputHandler,decrementHandler} = SetProductsActions();
     
     const rendredProduct = () =>{
         if (products.length === 0) {
@@ -19,10 +19,10 @@ const Products = ({onDelete,onIncrement,onDecrement,onInput}) => {
                     <Product
                         key ={index}
                         product = {product}
-                        onIncrement = {() =>onIncrement(product.id)}
-                        onDecrement = {() => onDecrement(product.id)}
-                        onDelete = {() => onDelete(product.id)}
-                        onInput = {(e) =>onInput(e,product.id)}
+                        onIncrement = {() =>incrementHandler(product.id)}
+                        onDecrement = {() => decrementHandler(product.id)}
+                        onDelete = {() => deleteHandler(product.id)}
+                        onInput = {(e) =>inputHandler(e,product.id)}
                     />
                 )
             })
