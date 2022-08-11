@@ -14,7 +14,7 @@ const ProductContextDispacher = createContext();
 const reducer = (state,action) =>{
     switch (action.type) {
         case "increment":{
-            const index = state.findIndex((item) => item.id === action.id);
+            const index = state.findIndex((p) => p.id === action.id);
             const product = {...state[index]}
             product.quantity ++;
 
@@ -23,10 +23,10 @@ const reducer = (state,action) =>{
             return(AllProducts);
         }
         case "decrement":{
-            const index = state.findIndex((item) => item.id === action.id)
+            const index = state.findIndex((p) => p.id === action.id)
             const product = state[index];
             if (product.quantity === 1) {
-                const filteredProduct = state.filter((item) => item.id !== action.id)
+                const filteredProduct = state.filter((p) => p.id !== action.id)
                 return(filteredProduct)
             }else{
                 product.quantity--;
@@ -36,16 +36,25 @@ const reducer = (state,action) =>{
             }
         }
         case "remove":
-            const filteredProduct = state.filter((item) => item.id !== action.id)
+            const filteredProduct = state.filter((p) => p.id !== action.id)
             return filteredProduct
         case "edit":{
-            const index = state.findIndex((item) => item.id === action.id)
+            const index = state.findIndex((p) => p.id === action.id)
             const product = state[index] ;
             product.title = action.event.target.value ; 
 
             const AllProducts = [...state]
             AllProducts[index] = product;
             return(AllProducts);
+        }
+        case "filter":{
+            console.log(action.event.target.value);
+            if (action.event.target.value === "") {
+                return productsData
+            }else{
+                const updatedProduct = productsData.filter((p) => p.availableSizes.indexOf(action.event.target.value) >= 0)
+                return updatedProduct;
+            }
         }
         default:
             break;
@@ -73,13 +82,13 @@ export const  SetProductsActions = () => {
     return useContext(ProductContextDispacher);
     // const products = useContext(ProductContext);
     // const deleteHandler = (id) =>{
-    //     const filteredProduct = products.filter((item) => item.id !== id)
+    //     const filteredProduct = products.filter((p) => p.id !== id)
     //     setProducts(filteredProduct)
     // }
 
     // const incrementHandler = (id) =>{
 
-    //     const index = products.findIndex((item) => item.id === id);
+    //     const index = products.findIndex((p) => p.id === id);
     //     const product = {...products[index]}
     //     product.quantity ++;
 
@@ -90,7 +99,7 @@ export const  SetProductsActions = () => {
 
     // const inputHandler = (e,id) =>{
         // console.log(e.target.value,id);
-    //     const index = products.findIndex((item) => item.id === id)
+    //     const index = products.findIndex((p) => p.id === id)
     //     const product = products[index] ;
     //     product.title = e.target.value ; 
         
@@ -100,10 +109,10 @@ export const  SetProductsActions = () => {
     // }
 
     // const decrementHandler = (id) =>{
-    //     const index = products.findIndex((item) => item.id === id)
+    //     const index = products.findIndex((p) => p.id === id)
     //     const product = products[index];
     //     if (product.quantity === 1) {
-    //         const filteredProduct = products.filter((item) => item.id !== id)
+    //         const filteredProduct = products.filter((p) => p.id !== id)
     //         setProducts(filteredProduct)
     //     }else{
     //         product.quantity--;
