@@ -1,4 +1,5 @@
 import './App.css'
+import Filter from './components/Filter/Filter';
 import Navbar from './components/Navbar/Navbar';
 import Products from "./components/ProductList/ProductList";
 
@@ -26,6 +27,7 @@ const App = () => {
         <div className='container'>
             <ProductsProviders>
                 <Navbar />
+                <Filter/>
                 <Products/>
             </ProductsProviders>
         </div>
