@@ -1,0 +1,21 @@
+.filter{
+    display: flex;
+    justify-content: space-between;
+    width: 50rem;
+    align-items: center;
+}
+
+.select{
+    width: 200px;
+}
+
+.selectContainer{
+    display: flex;
+    align-items: center;
+    margin-top: 3px;
+}
+
+.selectContainer span{
+    display: block;
+    margin-right: 1rem;
+}
