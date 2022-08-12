@@ -8,7 +8,7 @@ const Products = () => {
     const dispatch = SetProductsActions();
     
     const rendredProduct = () =>{
-        if (products.length === 0) {
+        if (products?.length === 0) {
             return(
                 <div>There is no item in cart</div>
             )
@@ -30,7 +30,7 @@ const Products = () => {
     }
     return (
         <div>
-            {!products.length == true && <div>Back to shopping</div>}
+            {!products?.length == true && <div>Back to shopping</div>}
             {rendredProduct()}
         </div>
     );
