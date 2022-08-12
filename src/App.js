@@ -1,4 +1,5 @@
 import './App.css'
+import SearchBar from './Common/Search/Search';
 import Filter from './components/Filter/Filter';
 import Navbar from './components/Navbar/Navbar';
 import Products from "./components/ProductList/ProductList";
@@ -27,6 +28,7 @@ const App = () => {
         <div className='container'>
             <ProductsProviders>
                 <Navbar />
+                <SearchBar/>
                 <Filter/>
                 <Products/>
             </ProductsProviders>

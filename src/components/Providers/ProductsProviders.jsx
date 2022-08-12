@@ -90,46 +90,4 @@ export const UseProducts = () => useContext(ProductContext);
 
 export const  SetProductsActions = () => {
     return useContext(ProductContextDispacher);
-    // const products = useContext(ProductContext);
-    // const deleteHandler = (id) =>{
-    //     const filteredProduct = products.filter((p) => p.id !== id)
-    //     setProducts(filteredProduct)
-    // }
-
-    // const incrementHandler = (id) =>{
-
-    //     const index = products.findIndex((p) => p.id === id);
-    //     const product = {...products[index]}
-    //     product.quantity ++;
-
-    //     const AllProducts = [...products];
-    //     AllProducts[index] = product;
-    //     setProducts(AllProducts);
-    // }
-
-    // const inputHandler = (e,id) =>{
-        // console.log(e.target.value,id);
-    //     const index = products.findIndex((p) => p.id === id)
-    //     const product = products[index] ;
-    //     product.title = e.target.value ; 
-        
-    //     const AllProducts = [...products]
-    //     AllProducts[index] = product;
-    //     setProducts(AllProducts);
-    // }
-
-    // const decrementHandler = (id) =>{
-    //     const index = products.findIndex((p) => p.id === id)
-    //     const product = products[index];
-    //     if (product.quantity === 1) {
-    //         const filteredProduct = products.filter((p) => p.id !== id)
-    //         setProducts(filteredProduct)
-    //     }else{
-    //         product.quantity--;
-    //         const AllProducts = [...products];
-    //         AllProducts[index] = product;
-    //         setProducts(AllProducts);
-    //     }
-    // };
-    // return{deleteHandler,incrementHandler,inputHandler,decrementHandler}
 }
