@@ -70,9 +70,9 @@ const reducer = (state,action) =>{
             const value = action.event.target.value;
 
             if (value === "") {
-                return state;
+                return productsData;
             }else{
-                const filteredProducts = state.filter((p) =>p.title.toLowerCase().includes(value.toLowerCase()))
+                const filteredProducts = productsData.filter((p) =>p.title.toLowerCase().includes(value.toLowerCase()))
                 return filteredProducts ;
             }
         }

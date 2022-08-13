@@ -32,7 +32,7 @@ export const productsData = [
         quantity :2,
         descreption:"lorem inpsum",
         availableSizes:[ "L" , "M"],
-        price : 14,
+        price : 32,
         isFreeShipping: false,
     },
     {
@@ -41,7 +41,7 @@ export const productsData = [
         quantity :3,
         descreption:"lorem inpsum",
         availableSizes:[ "L" , "M"],
-        price : 14,
+        price : 36,
         isFreeShipping: false,
     },
     {
@@ -50,7 +50,7 @@ export const productsData = [
         quantity :2,
         descreption:"lorem inpsum",
         availableSizes:[ "L" , "M"],
-        price : 14,
+        price : 39,
         isFreeShipping: false,
     },
 ] 
