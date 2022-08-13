@@ -30,7 +30,7 @@ const Products = () => {
     }
     return (
         <div>
-            {!products?.length == true && <div>Back to shopping</div>}
+            {/* {!products?.length == true && <div>Back to shopping</div>} */}
             {rendredProduct()}
         </div>
     );

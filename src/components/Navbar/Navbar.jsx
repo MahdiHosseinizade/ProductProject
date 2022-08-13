@@ -8,7 +8,7 @@ const Navbar = () => {
     // console.log(products.length);
     return (
         <header className={styles.navbar}>
-            <h2>lorem ipsum</h2>
+            <h2>Shopping cart</h2>
             <span>{products?.length}</span>
         </header>
     );

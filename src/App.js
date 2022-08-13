@@ -12,23 +12,10 @@ import { SetProductsActions, UseProducts } from './components/Providers/Products
 
 const App = () => {
 
-    const products = UseProducts();
-    const setProducts = SetProductsActions();
-    
-    // const [products,setProducts] = useState()
-
-    
-// to use context 
-//1. createContext 
-//2. export 
-//3. provider
-//4. useContext
-
     return (
         <div className='container'>
             <ProductsProviders>
                 <Navbar />
-                <SearchBar/>
                 <Filter/>
                 <Products/>
             </ProductsProviders>

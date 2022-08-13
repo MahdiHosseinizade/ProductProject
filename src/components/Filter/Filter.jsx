@@ -1,7 +1,8 @@
 import { useState } from "react";
 import Select from "react-select";
+import SelectComponent from "../../Common/Select/Select";
 import { SetProductsActions } from "../Providers/ProductsProviders";
-
+import SearchBar from "../../Common/Search/Search";
 import styles from './filter.module.css'
 
 const options = [
@@ -23,46 +24,43 @@ const Filter = () => {
 
     const [value,setValue] = useState("")
     const [sort,setSort] = useState("")
-
+    // console.log(value);
     const dispatch = SetProductsActions()
 
 
     const changeHandler = (selectedOption) =>{
-        setValue(selectedOption);
         dispatch({type:"filter",selectedOption:selectedOption})
         dispatch({type:"sort",selectedOption:sort})
+        setValue(selectedOption);
         // console.log(selectedOption);
     }
 
     const sortHandler = (selectedOption) =>{
-        setSort(selectedOption);
         dispatch({type:"sort",selectedOption:selectedOption})
+        setSort(selectedOption);
         // console.log(selectedOption);
     }
 
 
     return (
-        <div className={styles.filter}>
-            <p>filter product</p>
-            <div className={styles.selectContainer}>
-                <span>order by</span>
-                <Select 
+        <section >
+            <SearchBar filter={value}/>
+            <div className={styles.filter}>
+                <p>filter product</p>
+                <SelectComponent
+                    title="sort by size"
                     value={value}
                     onChange={changeHandler}
                     options={options}
-                    className={styles.select}
                 />
-            </div>
-            <div className={styles.selectContainer}>
-                <span>sort by</span>
-                <Select 
+                <SelectComponent
+                    title="sort by price"
                     value={sort}
                     onChange={sortHandler}
                     options={sortOptions}
-                    className={styles.select}
                 />
             </div>
-        </div>
+        </section>
     );
 }
 

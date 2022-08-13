@@ -24,14 +24,14 @@ const reducer = (state,action) =>{
             return(AllProducts);
         }
         case "decrement":{
-            const index = state.findIndex((p) => p.id === action.id)
-            const product = state[index];
+            const index = state.findIndex((item) => item.id === action.id)
+            const product = {...state[index]};
             if (product.quantity === 1) {
                 const filteredProduct = state.filter((p) => p.id !== action.id)
                 return(filteredProduct)
             }else{
-                product.quantity--;
                 const AllProducts = [...state];
+                product.quantity--;
                 AllProducts[index] = product;
                 return(AllProducts);
             }
@@ -64,6 +64,16 @@ const reducer = (state,action) =>{
                 return _.orderBy(products,["price"],["asc"])
             }else{
                 return _.orderBy(products,["price"],["desc"])
+            }
+        }
+        case "search":{
+            const value = action.event.target.value;
+
+            if (value === "") {
+                return state;
+            }else{
+                const filteredProducts = state.filter((p) =>p.title.toLowerCase().includes(value.toLowerCase()))
+                return filteredProducts ;
             }
         }
         default:
